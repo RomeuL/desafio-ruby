@@ -1,0 +1,76 @@
+<%= form_with(model: despacho) do |form| %>
+  <% if despacho.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(despacho.errors.count, "error") %> prohibited this despacho from being saved:</h2>
+      <ul>
+        <% despacho.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Seleção do Armeiro -->
+  <div>
+    <%= form.label :armeiro_id, "Armeiro", style: "display: block" %>
+    <%= form.select :armeiro_id, @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.id] }, { prompt: "Selecione um armeiro" } %>
+  </div>
+
+  <!-- Seleção da Matrícula do Armeiro -->
+  <div>
+    <%= form.label :matricula_armeiro, "Matrícula do Armeiro", style: "display: block" %>
+    <%= form.select :matricula_armeiro, @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.matricula] }, { prompt: "Selecione a matrícula do armeiro" } %>
+  </div>
+
+  <!-- Seleção do Guarda -->
+  <div>
+    <%= form.label :guarda_id, "Guarda", style: "display: block" %>
+    <%= form.select :guarda_id, @guardas.map { |guarda| [guarda.nome_completo, guarda.id] }, { prompt: "Selecione um guarda" } %>
+  </div>
+
+  <!-- Seleção da Matrícula do Guarda -->
+  <div>
+    <%= form.label :matricula_guarda, "Matrícula do Guarda", style: "display: block" %>
+    <%= form.select :matricula_guarda, @guardas.map { |guarda| [guarda.nome_completo, guarda.matricula] }, { prompt: "Selecione a matrícula do guarda" } %>
+  </div>
+
+  <!-- Seleção do Porte do Guarda -->
+  <div>
+    <%= form.label :porte_guarda, "Porte do Guarda", style: "display: block" %>
+    <%= form.select :porte_guarda, @guardas.map { |guarda| [guarda.nome_completo, guarda.porte_arma] }, { prompt: "Selecione o porte do guarda" } %>
+  </div>
+
+  <!-- Seleção da Arma -->
+  <div>
+    <%= form.label :arma_id, "Arma", style: "display: block" %>
+    <%= form.collection_select :arma_id, @armas, :id, :modelo, prompt: "Selecione uma arma" %>
+  </div>
+
+  <!-- Tipo da Transação -->
+  <div>
+    <%= form.label :tipo, "Tipo da Transação", style: "display: block" %>
+    <%= form.select :tipo, [["Entrada", "Entrada"], ["Saída", "Saída"]], prompt: "Selecione o tipo" %>
+  </div>
+
+  <!-- Outros Campos -->
+  <div>
+    <%= form.label :quantidade_balas, "Quantidade de Balas", style: "display: block" %>
+    <%= form.number_field :quantidade_balas %>
+  </div>
+  <div>
+    <%= form.label :calibre, "Calibre", style: "display: block" %>
+    <%= form.text_field :calibre %>
+  </div>
+  <div>
+    <%= form.label :quantidade_carregadores, "Quantidade de Carregadores", style: "display: block" %>
+    <%= form.number_field :quantidade_carregadores %>
+  </div>
+  <div>
+    <%= form.label :justificativa, "Justificativa", style: "display: block" %>
+    <%= form.text_area :justificativa %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

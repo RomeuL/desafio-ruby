@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  armeiro: one
+  matricula_armeiro: MyString
+  data: 2025-04-03 09:34:32
+  tipo: MyString
+  arma: one
+  quantidade_balas: 1
+  calibre: MyString
+  quantidade_carregadores: 1
+  guarda: one
+  porte_guarda: MyString
+  matricula_guarda: MyString
+  justificativa: MyText
+
+two:
+  armeiro: two
+  matricula_armeiro: MyString
+  data: 2025-04-03 09:34:32
+  tipo: MyString
+  arma: two
+  quantidade_balas: 1
+  calibre: MyString
+  quantidade_carregadores: 1
+  guarda: two
+  porte_guarda: MyString
+  matricula_guarda: MyString
+  justificativa: MyText

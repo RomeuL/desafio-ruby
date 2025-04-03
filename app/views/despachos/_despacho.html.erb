@@ -1,0 +1,61 @@
+<div id="<%= dom_id despacho %>">
+  <p>
+    <strong>Armeiro:</strong>
+    <%= despacho.armeiro&.nome_completo || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Matrícula do Armeiro:</strong>
+    <%= despacho.matricula_armeiro || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Data:</strong>
+    <%= despacho.data || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Tipo:</strong>
+    <%= despacho.tipo || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Arma:</strong>
+    <%= despacho.arma&.modelo || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Quantidade de Balas:</strong>
+    <%= despacho.quantidade_balas || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Calibre:</strong>
+    <%= despacho.calibre || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Quantidade de Carregadores:</strong>
+    <%= despacho.quantidade_carregadores || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Guarda:</strong>
+    <%= despacho.guarda&.nome_completo || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Porte do Guarda:</strong>
+    <%= despacho.porte_guarda || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Matrícula do Guarda:</strong>
+    <%= despacho.matricula_guarda || "Não informado" %>
+  </p>
+
+  <p>
+    <strong>Justificativa:</strong>
+    <%= despacho.justificativa || "Não informado" %>
+  </p>
+</div>

@@ -1,0 +1,2 @@
+module GuardasHelper
+end

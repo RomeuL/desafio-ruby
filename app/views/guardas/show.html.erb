@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @guarda %>
+
+<div>
+  <%= link_to "Edit this guarda", edit_guarda_path(@guarda) %> |
+  <%= link_to "Back to guardas", guardas_path %>
+
+  <%= button_to "Destroy this guarda", @guarda, method: :delete %>
+</div>

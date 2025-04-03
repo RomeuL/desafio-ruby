@@ -1,0 +1,32 @@
+<%= form_with(model: arma) do |form| %>
+  <% if arma.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(arma.errors.count, "error") %> prohibited this arma from being saved:</h2>
+
+      <ul>
+        <% arma.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :modelo, style: "display: block" %>
+    <%= form.text_field :modelo %>
+  </div>
+
+  <div>
+    <%= form.label :registro, style: "display: block" %>
+    <%= form.text_field :registro %>
+  </div>
+
+  <div>
+    <%= form.label :emprestada, style: "display: block" %>
+    <%= form.checkbox :emprestada %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

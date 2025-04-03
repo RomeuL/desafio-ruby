@@ -1,0 +1,27 @@
+<%= form_with(model: equipe, local: true) do |form| %>
+  <% if equipe.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(equipe.errors.count, "error") %> prohibited this equipe from being saved:</h2>
+
+      <ul>
+        <% equipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unidade_id, "Unidade" %>
+    <%= form.collection_select :unidade_id, @unidades, :id, :nome, prompt: "Selecione uma unidade" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

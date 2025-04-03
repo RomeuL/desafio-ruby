@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @arma %>
+
+<div>
+  <%= link_to "Edit this arma", edit_arma_path(@arma) %> |
+  <%= link_to "Back to armas", armas_path %>
+
+  <%= button_to "Destroy this arma", @arma, method: :delete %>
+</div>

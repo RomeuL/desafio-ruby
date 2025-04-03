@@ -1,0 +1,2 @@
+module ArmasHelper
+end

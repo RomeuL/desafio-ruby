@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Equipes" %>
+
+<h1>Equipes</h1>
+
+<div id="equipes">
+  <% @equipes.each do |equipe| %>
+    <div>
+      <p><strong>Nome da Equipe:</strong> <%= equipe.nome %></p>
+      <p><strong>Unidade:</strong> <%= equipe.unidade.nome if equipe.unidade %></p>
+      <p>
+        <%= link_to "Show this equipe", equipe %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New equipe", new_equipe_path %>
