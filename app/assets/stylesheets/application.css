@@ -37,6 +37,20 @@
   background-color: #0056b3;
 }
 
+.button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
 body {
   display: flex;
   flex-direction: column;
