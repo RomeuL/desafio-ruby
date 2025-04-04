@@ -27,7 +27,7 @@ class DespachosController < ApplicationController
 
     respond_to do |format|
       if @despacho.save
-        format.html { redirect_to @despacho, notice: "Despacho was successfully created." }
+        format.html { redirect_to @despacho, notice: "Despacho criado." }
         format.json { render :show, status: :created, location: @despacho }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class DespachosController < ApplicationController
   def update
     respond_to do |format|
       if @despacho.update(despacho_params)
-        format.html { redirect_to @despacho, notice: "Despacho was successfully updated." }
+        format.html { redirect_to @despacho, notice: "Despacho atualizado." }
         format.json { render :show, status: :ok, location: @despacho }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class DespachosController < ApplicationController
     @despacho.destroy!
 
     respond_to do |format|
-      format.html { redirect_to despachos_path, status: :see_other, notice: "Despacho was successfully destroyed." }
+      format.html { redirect_to despachos_path, status: :see_other, notice: "Despacho excluído." }
       format.json { head :no_content }
     end
   end

@@ -26,7 +26,7 @@ class UnidadesController < ApplicationController
 
     respond_to do |format|
       if @unidade.save
-        format.html { redirect_to @unidade, notice: "Unidade was successfully created." }
+        format.html { redirect_to @unidade, notice: "Unidade criada." }
         format.json { render :show, status: :created, location: @unidade }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class UnidadesController < ApplicationController
   def update
     respond_to do |format|
       if @unidade.update(unidade_params)
-        format.html { redirect_to @unidade, notice: "Unidade was successfully updated." }
+        format.html { redirect_to @unidade, notice: "Unidade atualizada." }
         format.json { render :show, status: :ok, location: @unidade }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class UnidadesController < ApplicationController
     @unidade.destroy!
 
     respond_to do |format|
-      format.html { redirect_to unidades_path, status: :see_other, notice: "Unidade was successfully destroyed." }
+      format.html { redirect_to unidades_path, status: :see_other, notice: "Unidade excluída." }
       format.json { head :no_content }
     end
   end
