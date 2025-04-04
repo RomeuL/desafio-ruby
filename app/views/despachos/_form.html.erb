@@ -10,71 +10,161 @@
     </div>
   <% end %>
 
+  <!-- Tipo de operação -->
+  <div class="field">
+    <%= form.label :tipo, "Tipo", style: "display: block", class: "field-text" %>
+    <%= form.select :tipo, ["Empréstimo", "Devolução"], { prompt: "Selecione o tipo de operação" }, class: "input-centralizado" %>
+  </div>
+
   <!-- Seleção do Armeiro -->
   <div class="field">
     <%= form.label :armeiro_id, "Armeiro", style: "display: block", class: "field-text" %>
-    <%= form.select :armeiro_id, @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.id] }, { prompt: "Selecione um armeiro" }, class: "input-centralizado" %>
+    <%= form.select :armeiro_id, 
+                   @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.id, 
+                   { 'data-matricula': armeiro.matricula }] }, 
+                   { prompt: "Selecione um armeiro" }, 
+                   class: "input-centralizado", 
+                   id: "armeiro-select" %>
   </div>
 
-  <!-- Seleção da Matrícula do Armeiro -->
-  <div class="field">
+  <!-- Matrícula do Armeiro (hidden but still submittable) -->
+  <div class="field" style="display: none;">
     <%= form.label :matricula_armeiro, "Matrícula do Armeiro", style: "display: block", class: "field-text" %>
-    <%= form.select :matricula_armeiro, @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.matricula] }, { prompt: "Selecione a matrícula do armeiro" }, class: "input-centralizado" %>
-  </div>
-
-  <!-- Seleção do Guarda -->
-  <div class="field">
-    <%= form.label :guarda_id, "Guarda", style: "display: block", class: "field-text" %>
-    <%= form.select :guarda_id, @guardas.map { |guarda| [guarda.nome_completo, guarda.id] }, { prompt: "Selecione um guarda" }, class: "input-centralizado" %>
-  </div>
-
-  <!-- Seleção do Porte do Guarda -->
-  <div class="field">
-    <%= form.label :porte_guarda, "Porte do Guarda", style: "display: block", class: "field-text" %>
-    <%= form.select :porte_guarda, @guardas.map { |guarda| [guarda.nome_completo, guarda.porte_arma] }, { prompt: "Selecione o porte do guarda" }, class: "input-centralizado" %>
-  </div>
-
-  <!-- Seleção da Matrícula do Guarda -->
-  <div class ="field">
-    <%= form.label :matricula_guarda, "Matrícula do Guarda", style: "display: block", class:"field-text" %>
-    <%= form.select :matricula_guarda, @guardas.map { |guarda| [guarda.nome_completo, guarda.matricula] }, { prompt: "Selecione a matrícula do guarda" }, class: "input-centralizado" %>
+    <%= form.text_field :matricula_armeiro, class: "input-centralizado", id: "matricula-armeiro-field" %>
   </div>
 
   <!-- Seleção da Arma -->
   <div class="field">
     <%= form.label :arma_id, "Arma", style: "display: block", class: "field-text" %>
-    <div class="dropdown-wrapper">
-      <%= form.collection_select :arma_id, @armas, :id, :modelo, { prompt: "Selecione uma arma" }, { class: "input-centralizado" } %>
-    </div>
+    <%= form.select :arma_id, @armas.map { |arma| [arma.modelo, arma.id] }, { prompt: "Selecione uma arma" }, class: "input-centralizado" %>
   </div>
 
-  <!-- Tipo da Transação -->
-  <div class="field">
-    <%= form.label :tipo, "Tipo da Transação", style: "display: block", class: "field-text" %>
-    <div class="dropdown-wrapper">
-      <%= form.select :tipo, [["Entrada", "Entrada"], ["Saída", "Saída"]], { prompt: "Selecione o tipo" }, { class: "input-centralizado" } %>
-    </div>
-  </div>
-
-  <!-- Outros Campos -->
+  <!-- Quantidade de Balas -->
   <div class="field">
     <%= form.label :quantidade_balas, "Quantidade de Balas", style: "display: block", class: "field-text" %>
     <%= form.number_field :quantidade_balas, class: "input-centralizado" %>
   </div>
-  <div>
-    <%= form.label :calibre, "Calibre", style: "display: block", class:"field-text" %>
+
+  <!-- Calibre -->
+  <div class="field">
+    <%= form.label :calibre, "Calibre", style: "display: block", class: "field-text" %>
     <%= form.text_field :calibre, class: "input-centralizado" %>
   </div>
-  <div>
-    <%= form.label :quantidade_carregadores, "Quantidade de Carregadores", style: "display: block", class:"field-text" %>
+
+  <!-- Quantidade de Carregadores -->
+  <div class="field">
+    <%= form.label :quantidade_carregadores, "Quantidade de Carregadores", style: "display: block", class: "field-text" %>
     <%= form.number_field :quantidade_carregadores, class: "input-centralizado" %>
   </div>
-  <div>
-    <%= form.label :justificativa, "Justificativa", style: "display: block", class:"field-text" %>
-    <%= form.text_area :justificativa, class: "input-centralizado" %>
+
+  <!-- Seleção do Guarda -->
+  <div class="field">
+    <%= form.label :guarda_id, "Guarda", style: "display: block", class: "field-text" %>
+    <%= form.select :guarda_id, 
+                   @guardas.map { |guarda| [guarda.nome_completo, guarda.id, 
+                   { 'data-matricula': guarda.matricula, 'data-porte': guarda.porte_arma }] }, 
+                   { prompt: "Selecione um guarda" }, 
+                   class: "input-centralizado", 
+                   id: "guarda-select" %>
   </div>
 
-  <div class ="actions">
-    <%= form.submit "Criar despacho", class: "button" %>
+  <!-- Porte do Guarda (hidden but still submittable) -->
+  <div class="field" style="display: none;">
+    <%= form.label :porte_guarda, "Porte do Guarda", style: "display: block", class: "field-text" %>
+    <%= form.text_field :porte_guarda, class: "input-centralizado", id: "porte-guarda-field" %>
+  </div>
+
+  <!-- Matrícula do Guarda (hidden but still submittable) -->
+  <div class="field" style="display: none;">
+    <%= form.label :matricula_guarda, "Matrícula do Guarda", style: "display: block", class: "field-text" %>
+    <%= form.text_field :matricula_guarda, class: "input-centralizado", id: "matricula-guarda-field" %>
+  </div>
+
+  <!-- Justificativa (particularmente importante para devoluções) -->
+  <div class="field">
+    <%= form.label :justificativa, "Justificativa", style: "display: block", class: "field-text" %>
+    <%= form.text_area :justificativa, class: "input-centralizado", rows: 4 %>
+    <% if despacho.tipo == "Devolução" %>
+      <p class="field-text"><em>Obrigatória se houver alterações nas quantidades de balas ou carregadores.</em></p>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <% if despacho.new_record? %>
+      <%= form.submit despacho.tipo == "Devolução" ? "Registrar Devolução" : "Criar despacho", class: "button" %>
+    <% else %>
+      <%= form.submit "Atualizar Despacho", class: "button" %>
+    <% end %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Auto-populate armeiro's matricula when selected
+    const armeiroSelect = document.getElementById('armeiro-select');
+    const matriculaArmeiroField = document.getElementById('matricula-armeiro-field');
+    
+    armeiroSelect.addEventListener('change', function() {
+      const selectedOption = this.options[this.selectedIndex];
+      if (selectedOption.value) {
+        matriculaArmeiroField.value = selectedOption.getAttribute('data-matricula');
+        console.log('Set armeiro matricula to:', matriculaArmeiroField.value);
+      } else {
+        matriculaArmeiroField.value = '';
+      }
+    });
+    
+    // Auto-populate guarda's matricula and porte when selected
+    const guardaSelect = document.getElementById('guarda-select');
+    const matriculaGuardaField = document.getElementById('matricula-guarda-field');
+    const porteGuardaField = document.getElementById('porte-guarda-field');
+    
+    guardaSelect.addEventListener('change', function() {
+      const selectedOption = this.options[this.selectedIndex];
+      if (selectedOption.value) {
+        matriculaGuardaField.value = selectedOption.getAttribute('data-matricula');
+        porteGuardaField.value = selectedOption.getAttribute('data-porte');
+        console.log('Set guarda matricula to:', matriculaGuardaField.value);
+        console.log('Set guarda porte to:', porteGuardaField.value);
+      } else {
+        matriculaGuardaField.value = '';
+        porteGuardaField.value = '';
+      }
+    });
+
+    // Populate fields on page load if values are already selected
+    if (armeiroSelect.selectedIndex > 0) {
+      const selectedArmeiro = armeiroSelect.options[armeiroSelect.selectedIndex];
+      matriculaArmeiroField.value = selectedArmeiro.getAttribute('data-matricula');
+      console.log('Initial armeiro matricula:', matriculaArmeiroField.value);
+    }
+    
+    if (guardaSelect.selectedIndex > 0) {
+      const selectedGuarda = guardaSelect.options[guardaSelect.selectedIndex];
+      matriculaGuardaField.value = selectedGuarda.getAttribute('data-matricula');
+      porteGuardaField.value = selectedGuarda.getAttribute('data-porte');
+      console.log('Initial guarda matricula:', matriculaGuardaField.value);
+      console.log('Initial guarda porte:', porteGuardaField.value);
+    }
+    
+    // Add form submission handler to ensure values are set
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+      if (armeiroSelect.selectedIndex > 0) {
+        const selectedArmeiro = armeiroSelect.options[armeiroSelect.selectedIndex];
+        matriculaArmeiroField.value = selectedArmeiro.getAttribute('data-matricula');
+      }
+      
+      if (guardaSelect.selectedIndex > 0) {
+        const selectedGuarda = guardaSelect.options[guardaSelect.selectedIndex];
+        matriculaGuardaField.value = selectedGuarda.getAttribute('data-matricula');
+        porteGuardaField.value = selectedGuarda.getAttribute('data-porte');
+      }
+      console.log('Form submitting with values:', {
+        armeiro_matricula: matriculaArmeiroField.value,
+        guarda_matricula: matriculaGuardaField.value,
+        guarda_porte: porteGuardaField.value
+      });
+    });
+  });
+</script>

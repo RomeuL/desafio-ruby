@@ -6,6 +6,11 @@
 
 <h1 class="show-titulo">Despachos</h1>
 
+<div style="margin-bottom: 20px;">
+  <%= link_to "Novo Empréstimo", new_despacho_path(tipo: "Empréstimo"), class: "button2" %>
+  <%= link_to "Nova Devolução", new_despacho_path(tipo: "Devolução"), class: "button2" %>
+</div>
+
 <div id="despachos">
   <% @despachos.each do |despacho| %>
     <%= render despacho %>
@@ -14,5 +19,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "Novo despacho", new_despacho_path,class:"button2" %>
