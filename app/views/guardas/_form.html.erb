@@ -1,7 +1,7 @@
 <%= form_with(model: guarda) do |form| %>
   <% if guarda.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(guarda.errors.count, "error") %> prohibited this guarda from being saved:</h2>
+      <h2><%= pluralize(guarda.errors.count, "error") %> proibiu este guarda de ser salvo:</h2>
 
       <ul>
         <% guarda.errors.each do |error| %>
@@ -12,31 +12,33 @@
   <% end %>
 
   <div>
-    <%= form.label :nome_completo, style: "display: block" %>
-    <%= form.text_field :nome_completo %>
+    <%= form.label :nome_completo, style: "display: block", class: "field-text" %>
+    <%= form.text_field :nome_completo, class: "input-centralizado" %>
   </div>
 
   <div>
-    <%= form.label :matricula, style: "display: block" %>
-    <%= form.text_field :matricula %>
+    <%= form.label :matricula, style: "display: block", class: "field-text" %>
+    <%= form.text_field :matricula, class: "input-centralizado" %>
   </div>
 
   <div>
-    <%= form.label :porte_arma, style: "display: block" %>
-    <%= form.text_field :porte_arma %>
+    <%= form.label :porte_arma, style: "display: block", class: "field-text" %>
+    <%= form.text_field :porte_arma, class: "input-centralizado" %>
   </div>
 
   <div>
-    <%= form.label :equipe_id, "Equipe", style: "display: block" %>
-    <%= form.collection_select :equipe_id, @equipes, :id, :nome, prompt: "Selecione uma equipe" %>
+    <%= form.label :equipe_id, "Equipe", style: "display: block", class: "field-text" %>
+    <%= form.collection_select :equipe_id, @equipes, :id, :nome, { prompt: "Selecione uma equipe" }, { class: "input-centralizado" } %>
   </div>
 
   <div>
-    <%= form.label :armeiro, style: "display: block" %>
-    <%= form.checkbox :armeiro %>
+    <%= form.label :armeiro, style: "display: block", class: "field-text" %>
+    <div class="checkbox-centralizado">
+      <%= form.check_box :armeiro, class: "checkbox-centralizado" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit "Cadastrar guarda", class: "button" %>
   </div>
 <% end %>

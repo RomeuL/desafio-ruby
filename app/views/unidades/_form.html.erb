@@ -12,11 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label :nome, style: "display: block" %>
+    <%= form.label :nome, style: "display: block", class: "field-text" %>
     <%= form.text_field :nome %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit "Cadastrar Unidade", class: "button" %>
   </div>
 <% end %>
+

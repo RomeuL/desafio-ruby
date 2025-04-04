@@ -3,8 +3,10 @@
 <%= render @equipe %>
 
 <div>
-  <%= link_to "Edit this equipe", edit_equipe_path(@equipe) %> |
-  <%= link_to "Back to equipes", equipes_path %>
+  <%= link_to "Editar equipe", edit_equipe_path(@equipe), class: "button" %> |
+  <%= link_to "Equipes", equipes_path, class: "button" %>
+</div>
 
-  <%= button_to "Destroy this equipe", @equipe, method: :delete %>
+<div>
+  <%= button_to "Excluir equipe", @equipe, method: :delete, class: "button3" %>
 </div>

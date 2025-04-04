@@ -3,8 +3,11 @@
 <%= render @guarda %>
 
 <div>
-  <%= link_to "Edit this guarda", edit_guarda_path(@guarda) %> |
-  <%= link_to "Back to guardas", guardas_path %>
+  <%= link_to "Editar guarda", edit_guarda_path(@guarda), class: "button" %> |
+  <%= link_to "Guardas", guardas_path, class: "button" %>
 
-  <%= button_to "Destroy this guarda", @guarda, method: :delete %>
+</div>
+
+<div>
+  <%= button_to "Excluir Guarda", @guarda, method: :delete, class: "button3" %>
 </div>

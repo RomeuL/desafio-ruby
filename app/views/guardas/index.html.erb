@@ -1,16 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to "Menu Principal", root_path, class: "button2" %>
+
 <% content_for :title, "Guardas" %>
 
-<h1>Guardas</h1>
+<h1 class= "show-titulo">Guardas</h1>
 
 <div id="guardas">
   <% @guardas.each do |guarda| %>
     <%= render guarda %>
     <p>
-      <%= link_to "Show this guarda", guarda %>
+      <%= link_to "Mostrar guarda", guarda, class: "button" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New guarda", new_guarda_path %>
+<%= link_to "Cadastrar guarda", new_guarda_path, class: "button2" %>

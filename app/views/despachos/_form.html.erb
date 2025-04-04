@@ -11,66 +11,70 @@
   <% end %>
 
   <!-- Seleção do Armeiro -->
-  <div>
-    <%= form.label :armeiro_id, "Armeiro", style: "display: block" %>
-    <%= form.select :armeiro_id, @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.id] }, { prompt: "Selecione um armeiro" } %>
+  <div class="field">
+    <%= form.label :armeiro_id, "Armeiro", style: "display: block", class: "field-text" %>
+    <%= form.select :armeiro_id, @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.id] }, { prompt: "Selecione um armeiro" }, class: "input-centralizado" %>
   </div>
 
   <!-- Seleção da Matrícula do Armeiro -->
-  <div>
-    <%= form.label :matricula_armeiro, "Matrícula do Armeiro", style: "display: block" %>
-    <%= form.select :matricula_armeiro, @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.matricula] }, { prompt: "Selecione a matrícula do armeiro" } %>
+  <div class="field">
+    <%= form.label :matricula_armeiro, "Matrícula do Armeiro", style: "display: block", class: "field-text" %>
+    <%= form.select :matricula_armeiro, @armeiros.map { |armeiro| [armeiro.nome_completo, armeiro.matricula] }, { prompt: "Selecione a matrícula do armeiro" }, class: "input-centralizado" %>
   </div>
 
   <!-- Seleção do Guarda -->
-  <div>
-    <%= form.label :guarda_id, "Guarda", style: "display: block" %>
-    <%= form.select :guarda_id, @guardas.map { |guarda| [guarda.nome_completo, guarda.id] }, { prompt: "Selecione um guarda" } %>
-  </div>
-
-  <!-- Seleção da Matrícula do Guarda -->
-  <div>
-    <%= form.label :matricula_guarda, "Matrícula do Guarda", style: "display: block" %>
-    <%= form.select :matricula_guarda, @guardas.map { |guarda| [guarda.nome_completo, guarda.matricula] }, { prompt: "Selecione a matrícula do guarda" } %>
+  <div class="field">
+    <%= form.label :guarda_id, "Guarda", style: "display: block", class: "field-text" %>
+    <%= form.select :guarda_id, @guardas.map { |guarda| [guarda.nome_completo, guarda.id] }, { prompt: "Selecione um guarda" }, class: "input-centralizado" %>
   </div>
 
   <!-- Seleção do Porte do Guarda -->
-  <div>
-    <%= form.label :porte_guarda, "Porte do Guarda", style: "display: block" %>
-    <%= form.select :porte_guarda, @guardas.map { |guarda| [guarda.nome_completo, guarda.porte_arma] }, { prompt: "Selecione o porte do guarda" } %>
+  <div class="field">
+    <%= form.label :porte_guarda, "Porte do Guarda", style: "display: block", class: "field-text" %>
+    <%= form.select :porte_guarda, @guardas.map { |guarda| [guarda.nome_completo, guarda.porte_arma] }, { prompt: "Selecione o porte do guarda" }, class: "input-centralizado" %>
+  </div>
+
+  <!-- Seleção da Matrícula do Guarda -->
+  <div class ="field">
+    <%= form.label :matricula_guarda, "Matrícula do Guarda", style: "display: block", class:"field-text" %>
+    <%= form.select :matricula_guarda, @guardas.map { |guarda| [guarda.nome_completo, guarda.matricula] }, { prompt: "Selecione a matrícula do guarda" }, class: "input-centralizado" %>
   </div>
 
   <!-- Seleção da Arma -->
-  <div>
-    <%= form.label :arma_id, "Arma", style: "display: block" %>
-    <%= form.collection_select :arma_id, @armas, :id, :modelo, prompt: "Selecione uma arma" %>
+  <div class="field">
+    <%= form.label :arma_id, "Arma", style: "display: block", class: "field-text" %>
+    <div class="dropdown-wrapper">
+      <%= form.collection_select :arma_id, @armas, :id, :modelo, { prompt: "Selecione uma arma" }, { class: "input-centralizado" } %>
+    </div>
   </div>
 
   <!-- Tipo da Transação -->
-  <div>
-    <%= form.label :tipo, "Tipo da Transação", style: "display: block" %>
-    <%= form.select :tipo, [["Entrada", "Entrada"], ["Saída", "Saída"]], prompt: "Selecione o tipo" %>
+  <div class="field">
+    <%= form.label :tipo, "Tipo da Transação", style: "display: block", class: "field-text" %>
+    <div class="dropdown-wrapper">
+      <%= form.select :tipo, [["Entrada", "Entrada"], ["Saída", "Saída"]], { prompt: "Selecione o tipo" }, { class: "input-centralizado" } %>
+    </div>
   </div>
 
   <!-- Outros Campos -->
-  <div>
-    <%= form.label :quantidade_balas, "Quantidade de Balas", style: "display: block" %>
-    <%= form.number_field :quantidade_balas %>
+  <div class="field">
+    <%= form.label :quantidade_balas, "Quantidade de Balas", style: "display: block", class: "field-text" %>
+    <%= form.number_field :quantidade_balas, class: "input-centralizado" %>
   </div>
   <div>
-    <%= form.label :calibre, "Calibre", style: "display: block" %>
-    <%= form.text_field :calibre %>
+    <%= form.label :calibre, "Calibre", style: "display: block", class:"field-text" %>
+    <%= form.text_field :calibre, class: "input-centralizado" %>
   </div>
   <div>
-    <%= form.label :quantidade_carregadores, "Quantidade de Carregadores", style: "display: block" %>
-    <%= form.number_field :quantidade_carregadores %>
+    <%= form.label :quantidade_carregadores, "Quantidade de Carregadores", style: "display: block", class:"field-text" %>
+    <%= form.number_field :quantidade_carregadores, class: "input-centralizado" %>
   </div>
   <div>
-    <%= form.label :justificativa, "Justificativa", style: "display: block" %>
-    <%= form.text_area :justificativa %>
+    <%= form.label :justificativa, "Justificativa", style: "display: block", class:"field-text" %>
+    <%= form.text_area :justificativa, class: "input-centralizado" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class ="actions">
+    <%= form.submit "Criar despacho", class: "button" %>
   </div>
 <% end %>

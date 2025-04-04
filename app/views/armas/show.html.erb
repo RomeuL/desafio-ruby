@@ -3,8 +3,10 @@
 <%= render @arma %>
 
 <div>
-  <%= link_to "Edit this arma", edit_arma_path(@arma) %> |
-  <%= link_to "Back to armas", armas_path %>
+  <%= link_to "Editar essa arma", edit_arma_path(@arma), class:"button" %> |
+  <%= link_to "Armas", armas_path, class: "button" %>
+</div>
 
-  <%= button_to "Destroy this arma", @arma, method: :delete %>
+<div>
+  <%= button_to "Excluir arma", @arma, method: :delete, class:"button3" %>
 </div>
