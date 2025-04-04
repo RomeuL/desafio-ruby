@@ -41,13 +41,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'example.com',
-    user_name: '<romeulcs1>@gmail.com',
-    password: '<wyfzUz-syrce9-givcof>',
-    authentication: 'plain',
-    enable_starttls_auto: true
+    address: ENV.fetch("EMAIL_HOST"),
+    port: ENV.fetch("EMAIL_PORT"),
+    user_name: ENV.fetch("EMAIL_USERNAME"),
+    password: ENV.fetch("EMAIL_PASSWORD"),
+    authentication: ENV.fetch("EMAIL_AUTHENTICATION"),
+    enable_starttls_auto: ENV.fetch("EMAIL_ENABLE_STARTTLS") == "true"
   }
 
   # Print deprecation notices to the Rails logger.

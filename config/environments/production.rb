@@ -60,6 +60,16 @@ Rails.application.configure do
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "example.com" }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV.fetch("EMAIL_HOST"),
+    port: ENV.fetch("EMAIL_PORT"),
+    user_name: ENV.fetch("EMAIL_USERNAME"),
+    password: ENV.fetch("EMAIL_PASSWORD"),
+    authentication: ENV.fetch("EMAIL_AUTHENTICATION"),
+    enable_starttls_auto: ENV.fetch("EMAIL_ENABLE_STARTTLS") == "true"
+  }
+
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
   #   user_name: Rails.application.credentials.dig(:smtp, :user_name),
