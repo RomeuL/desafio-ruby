@@ -1,11 +1,11 @@
-<% content_for :title, "Cadastrar equipes" %>
+<% content_for :title, "Cadastrar equipe" %>
 
-<h1>Nova equipe</h1>
+<div class="form-container">
+  <h1 class="show-titulo">Nova equipe</h1>
 
-<%= render "form", equipe: @equipe %>
-
-<br>
-
-<div>
-  <%= link_to "Equipes", equipes_path, class: "button" %>
+  <%= render "form", equipe: @equipe %>
+  
+  <div class="form-links">
+    <%= link_to "Voltar", equipes_path, class: "button" %>
+  </div>
 </div>

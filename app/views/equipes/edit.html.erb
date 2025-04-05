@@ -1,12 +1,12 @@
 <% content_for :title, "Editar equipe" %>
 
-<h1>Editar equipe</h1>
+<div class="form-container">
+  <h1 class="show-titulo">Editar equipe</h1>
 
-<%= render "form", equipe: @equipe %>
-
-<br>
-
-<div>
-  <%= link_to "Mostrar equipe", @equipe, class: "button" %> |
-  <%= link_to "Equipes", equipes_path, class: "button" %>
+  <%= render "form", equipe: @equipe %>
+  
+  <div class="form-links">
+    <%= link_to "Mostrar equipe", @equipe, class: "button" %>
+    <%= link_to "Voltar", equipes_path, class: "button" %>
+  </div>
 </div>

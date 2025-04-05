@@ -1,17 +1,28 @@
-<div id="<%= dom_id arma %>" class="show">
-  <p class="show-nome">
-    <strong>Modelo:</strong>
-    <%= arma.modelo %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Registro:</strong>
-    <%= arma.registro %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Emprestada:</strong>
-    <%= arma.emprestada %>
-  </p>
-
+<div id="<%= dom_id arma %>" class="show-card">
+  <h3 class="guard-name"><%= arma.modelo %></h3>
+  
+  <div class="guard-info">
+    <div class="info-row">
+      <span class="info-label">Registro:</span>
+      <span class="info-value"><%= arma.registro %></span>
+    </div>
+    
+    <div class="info-row">
+      <span class="info-label">Status:</span>
+      <span class="info-value <%= arma.emprestada ? 'status-active' : 'status-inactive' %>">
+        <%= arma.emprestada ? "Emprestada" : "Disponível" %>
+      </span>
+    </div>
+    
+    <% if arma.guarda_atual.present? %>
+    <div class="info-row">
+      <span class="info-label">Guarda atual:</span>
+      <span class="info-value"><%= arma.guarda_atual.nome_completo %></span>
+    </div>
+    <% end %>
+  </div>
+  
+  <div class="card-actions">
+    <%= link_to "Mostrar arma", arma, class: "button card-button" %>
+  </div>
 </div>

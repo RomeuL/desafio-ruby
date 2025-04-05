@@ -1,7 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
-<%= link_to "Menu Principal", root_path, class: "button2" %>
-
 <% content_for :title, "Despachos" %>
 
 <h1 class="show-titulo">Despachos</h1>
@@ -14,8 +12,6 @@
 <div id="despachos">
   <% @despachos.each do |despacho| %>
     <%= render despacho %>
-    <p class="field-text">
-      <%= link_to "Mostrar despacho", despacho, class: "button" %>
-    </p>
   <% end %>
 </div>
+

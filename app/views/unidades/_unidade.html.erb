@@ -1,6 +1,7 @@
-<div id="<%= dom_id unidade %>" class="show">
-  <p class="show-nome">
-    <strong></strong>
-    <%= unidade.nome %>
-  </p>
+<div id="<%= dom_id unidade %>" class="show-card">
+  <h3 class="unit-name"><%= unidade.nome %></h3>
+  
+  <div class="card-actions">
+    <%= link_to "Visualizar Unidade", unidade, class: "button card-button" %>
+  </div>
 </div>

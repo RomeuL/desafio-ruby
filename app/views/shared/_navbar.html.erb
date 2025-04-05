@@ -1,0 +1,24 @@
+<header class="main-header">
+  <div class="header-content">
+    <div class="logo-container">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", alt: "Logo GCM", class: "header-logo" %>
+        <h1>Sistema GCM</h1>
+      <% end %>
+    </div>
+    
+    <nav class="main-nav">
+      <%= link_to "Unidades", unidades_path, class: "nav-link" %>
+      <%= link_to "Equipes", equipes_path, class: "nav-link" %>
+      <%= link_to "Guardas", guardas_path, class: "nav-link" %>
+      <%= link_to "Armas", armas_path, class: "nav-link" %>
+      <%= link_to "Despachos", despachos_path, class: "nav-link" %>
+    </nav>
+    
+    <div class="user-actions">
+      <% if user_signed_in? %>
+        <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "button3" %>
+      <% end %>
+    </div>
+  </div>
+</header>

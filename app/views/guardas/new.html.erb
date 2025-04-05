@@ -1,11 +1,11 @@
 <% content_for :title, "Cadastrar guarda" %>
 
-<h1 class= "show-titulo">Cadastrar guarda</h1>
+<div class="form-container">
+  <h1 class="show-titulo">Cadastrar guarda</h1>
 
-<%= render "form", guarda: @guarda %>
-
-<br>
-
-<div>
-  <%= link_to "Guardas", guardas_path, class: "button" %>
+  <%= render "form", guarda: @guarda %>
+  
+  <div class="form-links">
+    <%= link_to "Voltar", guardas_path, class: "button" %>
+  </div>
 </div>

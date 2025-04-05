@@ -1,11 +1,11 @@
-<% content_for :title, "New unidade" %>
+<% content_for :title, "Nova unidade" %>
 
-<h1 class="show-titulo">Nova unidade</h1>
+<div class="form-container">
+  <h1 class="show-titulo">Nova unidade</h1>
 
-<%= render "form", unidade: @unidade %>
-
-<br>
-
-<div>
-  <%= link_to "Unidades", unidades_path, class: "button2" %>
+  <%= render "form", unidade: @unidade %>
+  
+  <div class="form-links">
+    <%= link_to "Voltar", unidades_path, class: "button" %>
+  </div>
 </div>

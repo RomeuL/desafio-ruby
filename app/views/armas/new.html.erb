@@ -1,11 +1,11 @@
-<% content_for :title, "New arma" %>
+<% content_for :title, "Cadastrar arma" %>
 
-<h1 class="show-titulo">Cadastrar arma</h1>
+<div class="form-container">
+  <h1 class="show-titulo">Cadastrar arma</h1>
 
-<%= render "form", arma: @arma %>
-
-<br>
-
-<div>
-  <%= link_to "Armas", armas_path, class: "button" %>
+  <%= render "form", arma: @arma %>
+  
+  <div class="form-links">
+    <%= link_to "Voltar", armas_path, class: "button" %>
+  </div>
 </div>

@@ -9,8 +9,6 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
-/* Centralizar o conteúdo */
-
 .button {
   display: inline-block;
   margin: 10px;
@@ -25,7 +23,7 @@
   background-color: #0056b3;
 }
 
-.button2{
+.button2 {
   display: inline-block;
   margin: 10px;
   padding: 10px 20px;
@@ -34,10 +32,12 @@
   text-decoration: none;
   border-radius: 5px;
 }
+
 .button2:hover {
   background-color: #03a311;
 }
-.button3{
+
+.button3 {
   display: inline-block;
   margin: 10px;
   padding: 10px 20px;
@@ -46,6 +46,7 @@
   text-decoration: none;
   border-radius: 5px;
 }
+
 .button3:hover {
   background-color: #9e0303;
 }
@@ -56,25 +57,25 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
-  min-height: 70vh;
+  min-height: 100vh;
 }
 
-.field{
+.field {
   padding: 10px;
 }
-.field-text{
+
+.field-text {
   text-align: center;
   justify-content: center;
-
 }
 
-.actions{
+.actions {
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-.links{
+.links {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,14 +83,14 @@ body {
   padding: 20px;
 }
 
-.show{
+.show {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
   background-color: #686a76;
 }
 
-.show-nome{
+.show-nome {
   color: rgb(255, 255, 255);
   align-items: center;
   justify-content: center;
@@ -97,7 +98,7 @@ body {
   text-transform: uppercase;
 }
 
-.show-titulo{
+.show-titulo {
   padding: 5px;
   border-radius: 5px;
   display: flex;
@@ -110,18 +111,18 @@ body {
   display: block;
   margin: 0 auto;
   text-align: center;
-  width: 100%; /* Ajuste conforme necessário */
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-  appearance: none; /* Remove o estilo padrão do navegador */
-  background-color: #fff; /* Adicione uma cor de fundo */
+  appearance: none; 
+  background-color: #fff; 
 }
 
 .dropdown-wrapper {
   position: relative;
-  width: 100%; /* Ajuste conforme necessário */
+  width: 100%; 
   margin: 0 auto;
 }
 
@@ -136,10 +137,333 @@ body {
 
 .checkbox-centralizado {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .checkbox-centralizado input[type="checkbox"] {
-  margin-right: 5px; /* Espaçamento entre o checkbox e o texto */
+  margin-right: 5px; 
+}
+
+
+.show-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 0; 
+  border-left: 4px solid #3b82f6;
+  transition: transform 0.2s ease;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+}
+
+.show-card:hover {
+  transform: translateY(-2px);
+}
+
+.guard-name {
+  font-size: 1.25rem;
+  color: #1f2937;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.guard-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-label {
+  font-weight: 500;
+  color: #6b7280;
+  flex: 0 0 40%;
+}
+
+.info-value {
+  color: #111827;
+  flex: 0 0 55%;
+}
+
+.status-active {
+  color: #047857;
+  font-weight: 500;
+}
+
+.status-inactive {
+  color: #6b7280;
+}
+
+.card-actions {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+#guardas, #unidades, #equipes, #armas, #despachos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 3rem; 
+}
+
+.justificativa .info-value {
+  font-style: italic;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  clear: both;
+}
+
+@media (max-width: 1024px) {
+  #guardas, #unidades, #equipes, #armas, #despachos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  #guardas, #unidades, #equipes, #armas, #despachos {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .info-label, .info-value {
+    flex: 0 0 100%;
+  }
+}
+
+.main-header {
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-logo {
+  height: 40px;
+  margin-right: 0.75rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: #1f2937;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #e5e7eb;
+}
+
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.main-logo {
+  height: 120px;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-title {
+  font-size: 1.75rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.system-description {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.quick-links h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.action-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  border-left: 4px solid #3b82f6;
+  transition: transform 0.2s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+}
+
+.action-card h4 {
+  color: #1f2937;
+  margin-top: 5;
+  margin-bottom: 0.5rem;
+}
+
+.action-card p {
+  color: #6b7280;
+  margin-bottom: 1.25rem;
+}
+
+.main-footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 1.5rem 0;
+  color: #6b7280;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.page-container {
+  max-width: 1200px;
+  width: 95%;
+  margin: 2rem auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh; 
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-logo {
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.auth-form {
+  margin-bottom: 1.5rem;
+}
+
+.auth-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.auth-links .button {
+  width: 100%;
+  max-width: 200px;
+  margin: 0.25rem 0;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #3b82f6;
+}
+
+.form-container h1, 
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-container .actions {
+  margin-top: 1.5rem;
+}
+
+.form-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .user-actions {
+    margin-top: 0.75rem;
+  }
 }

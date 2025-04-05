@@ -1,27 +1,31 @@
-<div id="<%= dom_id guarda %>" class="show">
-  <p class="show-nome">
-    <strong>Nome completo:</strong>
-    <%= guarda.nome_completo %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Matricula:</strong>
-    <%= guarda.matricula %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Porte arma:</strong>
-    <%= guarda.porte_arma %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Equipe:</strong>
-    <%= guarda.equipe_id %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Armeiro:</strong>
-    <%= guarda.armeiro %>
-  </p>
-
+<div id="<%= dom_id guarda %>" class="show-card">
+  <h3 class="guard-name"><%= guarda.nome_completo %></h3>
+  
+  <div class="guard-info">
+    <div class="info-row">
+      <span class="info-label">Matrícula:</span>
+      <span class="info-value"><%= guarda.matricula %></span>
+    </div>
+    
+    <div class="info-row">
+      <span class="info-label">Porte de arma:</span>
+      <span class="info-value"><%= guarda.porte_arma %></span>
+    </div>
+    
+    <div class="info-row">
+      <span class="info-label">Equipe:</span>
+      <span class="info-value"><%= guarda.equipe ? guarda.equipe.nome : "Não atribuído" %></span>
+    </div>
+    
+    <div class="info-row">
+      <span class="info-label">Armeiro:</span>
+      <span class="info-value <%= guarda.armeiro ? 'status-active' : 'status-inactive' %>">
+        <%= guarda.armeiro ? "Sim" : "Não" %>
+      </span>
+    </div>
+    
+    <div class="card-actions">
+      <%= link_to "Mostrar guarda", guarda, class: "button card-button" %>
+    </div>
+  </div>
 </div>
