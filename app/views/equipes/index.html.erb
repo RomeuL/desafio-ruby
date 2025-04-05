@@ -1,21 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<%= link_to "Menu Principal", root_path, class: "button2" %>
-
 <% content_for :title, "Equipes" %>
 
-<h1 class= "show-titulo">Equipes</h1>
+<h1 class="show-titulo">Equipes</h1>
 
-<div id="equipes" class="actions">
+<div id="equipes">
   <% @equipes.each do |equipe| %>
-    <div class="show">
-      <p class= "show-nome"><strong>Nome da Equipe:</strong> <%= equipe.nome %></p>
-      <p class= "show-nome"><strong>Unidade:</strong> <%= equipe.unidade.nome if equipe.unidade %></p>
-      <p class= "actions">
-        <%= link_to "Mostrar equipe", equipe, class: "button" %>
-      </p>
-    </div>
+    <%= render equipe %>
   <% end %>
 </div>
 
-<%= link_to "Cadastrar Equipe", new_equipe_path, class: "button2" %>
+<div class="mt-4">
+  <%= link_to "Cadastrar Equipe", new_equipe_path, class: "button2" %>
+</div>

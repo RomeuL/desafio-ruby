@@ -1,12 +1,12 @@
-<% content_for :title, "Editing arma" %>
+<% content_for :title, "Editar arma" %>
 
-<h1>Editing arma</h1>
+<div class="form-container">
+  <h1 class="show-titulo">Editar arma</h1>
 
-<%= render "form", arma: @arma %>
-
-<br>
-
-<div>
-  <%= link_to "Show this arma", @arma, class: "button" %> |
-  <%= link_to "Back to armas", armas_path, class: "button" %>
+  <%= render "form", arma: @arma %>
+  
+  <div class="form-links">
+    <%= link_to "Mostrar arma", @arma, class: "button" %>
+    <%= link_to "Voltar", armas_path, class: "button" %>
+  </div>
 </div>

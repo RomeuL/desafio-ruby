@@ -1,61 +1,41 @@
-<div id="<%= dom_id despacho %>" class="show">
-  <p class="show-nome">
-    <strong>Armeiro:</strong>
-    <%= despacho.armeiro&.nome_completo || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Matrícula do Armeiro:</strong>
-    <%= despacho.matricula_armeiro || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Data:</strong>
-    <%= despacho.data || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Tipo:</strong>
-    <%= despacho.tipo || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Arma:</strong>
-    <%= despacho.arma&.modelo || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Quantidade de Balas:</strong>
-    <%= despacho.quantidade_balas || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Calibre:</strong>
-    <%= despacho.calibre || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Quantidade de Carregadores:</strong>
-    <%= despacho.quantidade_carregadores || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Guarda:</strong>
-    <%= despacho.guarda&.nome_completo || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Porte do Guarda:</strong>
-    <%= despacho.porte_guarda || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Matrícula do Guarda:</strong>
-    <%= despacho.matricula_guarda || "Não informado" %>
-  </p>
-
-  <p class="show-nome">
-    <strong>Justificativa:</strong>
-    <%= despacho.justificativa || "Não informado" %>
-  </p>
+<div id="<%= dom_id despacho %>" class="show-card">
+  <h3 class="guard-name"><%= "#{despacho.tipo}: #{despacho.arma&.modelo}" %></h3>
+  
+  <div class="guard-info">
+    <div class="info-row">
+      <span class="info-label">Data:</span>
+      <span class="info-value"><%= despacho.data&.strftime("%d/%m/%Y %H:%M") || "Não informado" %></span>
+    </div>
+    
+    <div class="info-row">
+      <span class="info-label">Armeiro:</span>
+      <span class="info-value"><%= despacho.armeiro&.nome_completo || "Não informado" %></span>
+    </div>
+    
+    <div class="info-row">
+      <span class="info-label">Guarda:</span>
+      <span class="info-value"><%= despacho.guarda&.nome_completo || "Não informado" %></span>
+    </div>
+    
+    <div class="info-row">
+      <span class="info-label">Munição:</span>
+      <span class="info-value"><%= "#{despacho.quantidade_balas || 0} balas (#{despacho.calibre})" %></span>
+    </div>
+    
+    <div class="info-row">
+      <span class="info-label">Carregadores:</span>
+      <span class="info-value"><%= despacho.quantidade_carregadores || "Não informado" %></span>
+    </div>
+    
+    <% if despacho.justificativa.present? %>
+    <div class="info-row justificativa">
+      <span class="info-label">Justificativa:</span>
+      <span class="info-value"><%= despacho.justificativa %></span>
+    </div>
+    <% end %>
+  </div>
+  
+  <div class="card-actions">
+    <%= link_to "Ver detalhes", despacho, class: "button card-button" %>
+  </div>
 </div>

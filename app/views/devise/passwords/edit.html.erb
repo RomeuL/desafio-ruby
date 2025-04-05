@@ -1,24 +1,30 @@
-<%= image_tag "logo.png", alt: "Logo", class: "logo" %>
-<h2 class="show-titulo">Altere sua senha</h2>
+<div class="auth-container">
+  <%= image_tag "logo.png", alt: "Logo", class: "auth-logo" %>
+  <h2 class="show-titulo">Altere sua senha</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "auth-form" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "Nova senha", style: "display: block", class: "field-text" %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "input-centralizado" %>
+    <div class="field">
+      <%= f.label :password, "Nova senha", style: "display: block", class: "field-text" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "input-centralizado" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, "Confirmar nova senha", style: "display: block", class: "field-text" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-centralizado" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Alterar minha senha", class: "button" %>
+    </div>
+  <% end %>
+  
+  <div class="auth-links">
+    <%= link_to "Voltar ao login", new_session_path(resource_name), class: "button" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmar nova senha", style: "display: block", class: "field-text" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-centralizado" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Alterar minha senha", class: "button" %>
-  </div>
-<% end %>
+</div>

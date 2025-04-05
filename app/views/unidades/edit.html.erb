@@ -1,12 +1,12 @@
-<% content_for :title, "Editando unidade" %>
+<% content_for :title, "Editar unidade" %>
 
-<h1>Editing unidade</h1>
+<div class="form-container">
+  <h1 class="show-titulo">Editar unidade</h1>
 
-<%= render "form", unidade: @unidade %>
-
-<br>
-
-<div>
-  <%= link_to "Mostrar unidade", @unidade, class: "button" %> |
-  <%= link_to "Unidades", unidades_path, class: "button" %>
+  <%= render "form", unidade: @unidade %>
+  
+  <div class="form-links">
+    <%= link_to "Mostrar unidade", @unidade, class: "button" %>
+    <%= link_to "Voltar", unidades_path, class: "button" %>
+  </div>
 </div>

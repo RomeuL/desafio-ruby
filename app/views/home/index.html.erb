@@ -2,23 +2,54 @@
 <html>
   <head>
     <title>Página Inicial</title>
+    <% content_for :title, "Sistema de Controle de Armamento GCM" %>
   </head>
   <body>
-    <%= image_tag "logo.png", alt: "Logo", class: "logo" %>
-    <main>
-      <div class="actions">
-        <% if user_signed_in? %>
-        <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "button3" %>
-        <% end %>
-      </div>
-      <h1 class="actions">Bem-vindo ao Sistema</h1>
-      <div>
-        <%= link_to "Cadastro de Unidades", unidades_path, class: "button" %>
-        <%= link_to "Cadastro de Equipes", equipes_path, class: "button" %>
-        <%= link_to "Cadastro de Guardas", guardas_path, class: "button" %>
-        <%= link_to "Cadastro de Armas", armas_path, class: "button" %>
-        <%= link_to "Despachos", despachos_path, class: "button" %>
-      </div>
+    <main class="home-content">
+      <section class="welcome-section">
+        <%= image_tag "logo.png", alt: "Logo", class: "main-logo" %>
+        <h2 class="welcome-title">Bem-vindo ao Sistema de Controle de Armamento</h2>
+        
+        <div class="system-description">
+          <p>Sistema integrado para gerenciamento do armamento da Guarda Civil Municipal.</p>
+          <p>Controle de empréstimos e devoluções de armas, rastreamento de munição e gerenciamento de guardas.</p>
+        </div>
+      </section>
+      
+      <section class="quick-links">
+        <h3>Acesso Rápido</h3>
+        <div class="cards-grid">
+          <div class="action-card">
+            <h4>Unidades</h4>
+            <p>Gerenciar unidades da GCM</p>
+            <%= link_to "Acessar", unidades_path, class: "button2" %>
+          </div>
+          
+          <div class="action-card">
+            <h4>Equipes</h4>
+            <p>Gerenciar equipes de guardas</p>
+            <%= link_to "Acessar", equipes_path, class: "button2" %>
+          </div>
+          
+          <div class="action-card">
+            <h4>Guardas</h4>
+            <p>Gerenciar cadastro de guardas</p>
+            <%= link_to "Acessar", guardas_path, class: "button2" %>
+          </div>
+          
+          <div class="action-card">
+            <h4>Armas</h4>
+            <p>Gerenciar inventário de armas</p>
+            <%= link_to "Acessar", armas_path, class: "button2" %>
+          </div>
+          
+          <div class="action-card">
+            <h4>Despachos</h4>
+            <p>Registrar empréstimos e devoluções</p>
+            <%= link_to "Acessar", despachos_path, class: "button2" %>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

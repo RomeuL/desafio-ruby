@@ -1,11 +1,11 @@
-<% content_for :title, "Novo despacho" %>
+<% content_for :title, params[:tipo] == "Devolução" ? "Nova devolução" : "Novo empréstimo" %>
 
-<h1 class="show-titulo">Novo despacho</h1>
+<div class="form-container">
+  <h1 class="show-titulo"><%= params[:tipo] == "Devolução" ? "Nova devolução" : "Novo empréstimo" %></h1>
 
-<%= render "form", despacho: @despacho %>
-
-<br>
-
-<div>
-  <%= link_to "Despachos", despachos_path, class:"button" %>
+  <%= render "form", despacho: @despacho %>
+  
+  <div class="form-links">
+    <%= link_to "Voltar", despachos_path, class: "button" %>
+  </div>
 </div>
