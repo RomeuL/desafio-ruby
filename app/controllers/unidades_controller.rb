@@ -59,12 +59,10 @@ class UnidadesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_unidade
       @unidade = Unidade.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
     def unidade_params
       params.expect(unidade: [ :nome ])
     end

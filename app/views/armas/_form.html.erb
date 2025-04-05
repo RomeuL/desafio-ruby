@@ -1,7 +1,7 @@
 <%= form_with(model: arma) do |form| %>
   <% if arma.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(arma.errors.count, "error") %> proibiu esta arma de ser salva:</h2>
+      <h2><%= pluralize(arma.errors.count, "error") %> impediram esta arma de ser salva:</h2>
 
       <ul>
         <% arma.errors.each do |error| %>

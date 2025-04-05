@@ -83,7 +83,8 @@ body {
 }
 
 .show{
-  padding: 1px;
+  padding: 5px;
+  margin: 5px;
   border-radius: 5px;
   background-color: #686a76;
 }

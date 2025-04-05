@@ -8,10 +8,6 @@ class Despacho < ApplicationRecord
   validate :validar_justificativa_se_necessario, if: -> { tipo == "Devolução" }
   before_create :set_data_hora
   
-  # Remove the after_save callback
-  # after_save :atualizar_status_arma
-  
-  # Instead, use an ActiveRecord transaction to ensure atomic updates
   def save_with_arma_update
     Despacho.transaction do
       if save
@@ -42,20 +38,19 @@ class Despacho < ApplicationRecord
   end
 
   def validar_devolucao
-    # Check if the weapon is currently borrowed
+    
     unless arma.emprestada?
       errors.add(:arma, "não está emprestada e, portanto, não pode ser devolvida")
       return
     end
     
-    # Check if the guard returning the weapon is the one who borrowed it
     if arma.guarda_atual_id != guarda_id
       errors.add(:base, "Esta arma foi emprestada para outro guarda e só pode ser devolvida por ele")
     end
   end
 
   def validar_justificativa_se_necessario
-    # Find the last loan for this weapon
+    
     ultimo_emprestimo = Despacho.where(arma_id: arma_id, tipo: "Empréstimo").order(created_at: :desc).first
     
     if ultimo_emprestimo.present?

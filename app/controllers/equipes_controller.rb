@@ -1,6 +1,7 @@
 class EquipesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_equipe, only: %i[ show edit update destroy ]
+  before_action :set_unidades, only: %i[ new edit create update ]
 
   # GET /equipes or /equipes.json
   def index
@@ -14,13 +15,10 @@ class EquipesController < ApplicationController
   # GET /equipes/new
   def new
     @equipe = Equipe.new
-    @unidades = Unidade.all
   end
 
   # GET /equipes/1/edit
   def edit
-    @equipe = Equipe.find(params[:id])
-    @unidades = Unidade.all
   end
 
   # POST /equipes or /equipes.json
@@ -29,7 +27,7 @@ class EquipesController < ApplicationController
 
     respond_to do |format|
       if @equipe.save
-        format.html { redirect_to @equipe, notice: "Equipe criada." }
+        format.html { redirect_to @equipe, notice: "Equipe criada com sucesso." }
         format.json { render :show, status: :created, location: @equipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +40,7 @@ class EquipesController < ApplicationController
   def update
     respond_to do |format|
       if @equipe.update(equipe_params)
-        format.html { redirect_to @equipe, notice: "Equipe atualizada." }
+        format.html { redirect_to @equipe, notice: "Equipe atualizada com sucesso." }
         format.json { render :show, status: :ok, location: @equipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -64,7 +62,12 @@ class EquipesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_equipe
-      @equipe = Equipe.find(params.expect(:id))
+      @equipe = Equipe.find(params[:id])
+    end
+
+    # Add this method to populate @unidades
+    def set_unidades
+      @unidades = Unidade.all
     end
 
     # Only allow a list of trusted parameters through.

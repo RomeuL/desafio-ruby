@@ -1,7 +1,7 @@
 <%= form_with(model: guarda) do |form| %>
   <% if guarda.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(guarda.errors.count, "error") %> proibiu este guarda de ser salvo:</h2>
+      <h2><%= pluralize(guarda.errors.count, "error") %> impediram este guarda de ser salvo:</h2>
 
       <ul>
         <% guarda.errors.each do |error| %>

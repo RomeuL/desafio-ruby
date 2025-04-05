@@ -16,12 +16,9 @@ class DespachosController < ApplicationController
   def new
     @despacho = Despacho.new
     @despacho.tipo = params[:tipo] if params[:tipo].present?
-    
-    # Pre-fill form for returns if an arma_id is provided
     if params[:arma_id].present? && @despacho.tipo == "Devolução"
       arma = Arma.find_by(id: params[:arma_id])
       if arma && arma.emprestada?
-        # Get the last loan for this weapon
         ultimo_emprestimo = Despacho.where(arma_id: arma.id, tipo: "Empréstimo").order(created_at: :desc).first
         
         if ultimo_emprestimo.present?
@@ -42,8 +39,6 @@ class DespachosController < ApplicationController
   # POST /despachos or /despachos.json
   def create
     @despacho = Despacho.new(despacho_params)
-    
-    # Set matricula and porte values from associated records if not set in the form
     if @despacho.armeiro_id.present? && @despacho.matricula_armeiro.blank?
       armeiro = Guarda.find(@despacho.armeiro_id)
       @despacho.matricula_armeiro = armeiro.matricula
@@ -56,7 +51,6 @@ class DespachosController < ApplicationController
     end
 
     respond_to do |format|
-      # Use save_with_arma_update instead of save
       if @despacho.save_with_arma_update
         format.html { redirect_to @despacho, notice: "Despacho criado." }
         format.json { render :show, status: :created, location: @despacho }
@@ -69,7 +63,6 @@ class DespachosController < ApplicationController
 
   # PATCH/PUT /despachos/1 or /despachos/1.json
   def update
-    # Similar logic for update
     if despacho_params[:armeiro_id].present? && (despacho_params[:matricula_armeiro].blank? || @despacho.matricula_armeiro.blank?)
       armeiro = Guarda.find(despacho_params[:armeiro_id])
       params[:despacho][:matricula_armeiro] = armeiro.matricula
@@ -81,11 +74,9 @@ class DespachosController < ApplicationController
       params[:despacho][:porte_guarda] = guarda.porte_arma if despacho_params[:porte_guarda].blank?
     end
     
-    # Apply attributes but don't save yet
     @despacho.assign_attributes(despacho_params)
     
     respond_to do |format|
-      # Use save_with_arma_update instead of update
       if @despacho.save_with_arma_update
         format.html { redirect_to @despacho, notice: "Despacho atualizado." }
         format.json { render :show, status: :ok, location: @despacho }
@@ -96,7 +87,6 @@ class DespachosController < ApplicationController
     end
   end
 
-  # DELETE /despachos/1 or /despachos/1.json
   def destroy
     @despacho.destroy!
 
@@ -107,7 +97,6 @@ class DespachosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_despacho
       @despacho = Despacho.find(params[:id])
     end
@@ -116,7 +105,6 @@ class DespachosController < ApplicationController
       @armeiros = Guarda.where(armeiro: true) 
       @guardas = Guarda.all 
       
-      # Filter weapons based on operation type (loan or return)
       if params[:tipo] == "Devolução" || @despacho&.tipo == "Devolução"
         @armas = Arma.where(emprestada: true)
       else
@@ -124,7 +112,6 @@ class DespachosController < ApplicationController
       end
     end
 
-    # Only allow a list of trusted parameters through.
     def despacho_params
       params.require(:despacho).permit(:arma_id, :quantidade_balas, :calibre, :quantidade_carregadores, :guarda_id, :porte_guarda, :matricula_guarda, :justificativa, :armeiro_id, :matricula_armeiro, :tipo)
     end

@@ -1,7 +1,7 @@
 <%= form_with(model: despacho) do |form| %>
   <% if despacho.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(despacho.errors.count, "error") %> prohibited this despacho from being saved:</h2>
+      <h2><%= pluralize(despacho.errors.count, "error") %> impediram esse despacho de ser criado:</h2>
       <ul>
         <% despacho.errors.each do |error| %>
           <li><%= error.full_message %></li>

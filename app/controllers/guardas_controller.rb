@@ -1,7 +1,7 @@
 class GuardasController < ApplicationController
   before_action :authenticate_user!
   before_action :set_guarda, only: %i[ show edit update destroy ]
-  before_action :set_equipes, only: %i[new edit]
+  before_action :set_equipes, only: %i[ new edit create update ]
 
   # GET /guardas or /guardas.json
   def index
@@ -27,7 +27,7 @@ class GuardasController < ApplicationController
 
     respond_to do |format|
       if @guarda.save
-        format.html { redirect_to @guarda, notice: "Guarda cadastrado." }
+        format.html { redirect_to @guarda, notice: "Guarda criado com sucesso." }
         format.json { render :show, status: :created, location: @guarda }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class GuardasController < ApplicationController
   def update
     respond_to do |format|
       if @guarda.update(guarda_params)
-        format.html { redirect_to @guarda, notice: "Guarda atualizado." }
+        format.html { redirect_to @guarda, notice: "Guarda atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @guarda }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -1,4 +1,5 @@
 class Unidade < ApplicationRecord
-    has_many :equipes, dependent: :destroy
+  validates :nome, presence: true  
+  has_many :equipes, dependent: :destroy
   end
   
