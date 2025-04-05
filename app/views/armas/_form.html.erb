@@ -1,7 +1,7 @@
 <%= form_with(model: arma) do |form| %>
   <% if arma.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(arma.errors.count, "error") %> prohibited this arma from being saved:</h2>
+      <h2><%= pluralize(arma.errors.count, "error") %> impediram esta arma de ser salva:</h2>
 
       <ul>
         <% arma.errors.each do |error| %>
@@ -12,21 +12,23 @@
   <% end %>
 
   <div>
-    <%= form.label :modelo, style: "display: block" %>
-    <%= form.text_field :modelo %>
+    <%= form.label :modelo, style: "display: block", class: "field-text" %>
+    <%= form.text_field :modelo, class: "input-centralizado" %>
   </div>
 
   <div>
-    <%= form.label :registro, style: "display: block" %>
-    <%= form.text_field :registro %>
+    <%= form.label :registro, style: "display: block", class: "field-text" %>
+    <%= form.text_field :registro, class: "input-centralizado" %>
   </div>
 
   <div>
-    <%= form.label :emprestada, style: "display: block" %>
-    <%= form.checkbox :emprestada %>
+    <%= form.label :emprestada, style: "display: block", class: "field-text" %>
+    <div class="checkbox-centralizado">
+      <%= form.check_box :emprestada, class: "checkbox-centralizado" %>
+    </div>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Cadastrar arma", class: "button" %>
   </div>
 <% end %>

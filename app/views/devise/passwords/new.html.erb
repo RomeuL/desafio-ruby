@@ -1,0 +1,15 @@
+<%= image_tag "logo.png", alt: "Logo", class: "logo" %>
+<h2 class="show-titulo">Esqueceu sua senha?</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email, "E-mail", style: "display: block", class: "field-text" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-centralizado" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Alterar Senha", class: "button" %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Página Inicial</title>
+  </head>
+  <body>
+    <%= image_tag "logo.png", alt: "Logo", class: "logo" %>
+    <main>
+      <div class="actions">
+        <% if user_signed_in? %>
+        <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "button3" %>
+        <% end %>
+      </div>
+      <h1 class="actions">Bem-vindo ao Sistema</h1>
+      <div>
+        <%= link_to "Cadastro de Unidades", unidades_path, class: "button" %>
+        <%= link_to "Cadastro de Equipes", equipes_path, class: "button" %>
+        <%= link_to "Cadastro de Guardas", guardas_path, class: "button" %>
+        <%= link_to "Cadastro de Armas", armas_path, class: "button" %>
+        <%= link_to "Despachos", despachos_path, class: "button" %>
+      </div>
+    </main>
+  </body>
+</html>

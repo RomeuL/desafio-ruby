@@ -1,16 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to "Menu Principal", root_path, class: "button2" %>
+
 <% content_for :title, "Unidades" %>
 
-<h1>Unidades</h1>
+<h1 class="show-titulo">Unidades</h1>
 
 <div id="unidades">
   <% @unidades.each do |unidade| %>
     <%= render unidade %>
     <p>
-      <%= link_to "Show this unidade", unidade %>
+      <%= link_to "Visualizar Unidade", unidade, class: "button" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "Nova Unidade", new_unidade_path %>
+<%= link_to "Nova Unidade", new_unidade_path, class: "button2" %>
+

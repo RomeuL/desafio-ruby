@@ -1,0 +1,32 @@
+<%= image_tag "logo.png", alt: "Logo", class: "logo" %>
+
+<h2 class="show-titulo">Entrar</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email, "E-mail", style: "display: block", class: "field-text" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input-centralizado" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "Senha", style: "display: block", class: "field-text" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "input-centralizado" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field checkbox-centralizado">
+      <%= f.check_box :remember_me, class: "checkbox-centralizado" %>
+      <%= f.label :remember_me, "Lembrar-me", class: "field-text" %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Entrar", class: "button" %>
+  </div>
+<% end %>
+
+<div class="links">
+  <%= link_to "Criar conta", new_registration_path(resource_name), class: "button" %><br />
+  <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class: "button" %>
+</div>
+ 

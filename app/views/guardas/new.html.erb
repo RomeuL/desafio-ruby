@@ -1,11 +1,11 @@
-<% content_for :title, "New guarda" %>
+<% content_for :title, "Cadastrar guarda" %>
 
-<h1>New guarda</h1>
+<h1 class= "show-titulo">Cadastrar guarda</h1>
 
 <%= render "form", guarda: @guarda %>
 
 <br>
 
 <div>
-  <%= link_to "Back to guardas", guardas_path %>
+  <%= link_to "Guardas", guardas_path, class: "button" %>
 </div>

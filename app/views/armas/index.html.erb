@@ -1,16 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to "Menu Principal", root_path, class: "button2" %>
+
 <% content_for :title, "Armas" %>
 
-<h1>Armas</h1>
+<h1 class= "show-titulo">Armas</h1>
 
 <div id="armas">
   <% @armas.each do |arma| %>
     <%= render arma %>
     <p>
-      <%= link_to "Show this arma", arma %>
+      <%= link_to "Mostrar arma", arma, class: "button" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New arma", new_arma_path %>
+<%= link_to "Cadastrar arma", new_arma_path, class: "button2" %>

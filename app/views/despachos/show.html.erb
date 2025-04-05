@@ -3,8 +3,11 @@
 <%= render @despacho %>
 
 <div>
-  <%= link_to "Edit this despacho", edit_despacho_path(@despacho) %> |
-  <%= link_to "Back to despachos", despachos_path %>
+  <%= link_to "Editar despacho", edit_despacho_path(@despacho), class: "button" %> |
+  <%= link_to "Despachos", despachos_path, class:"button" %>
 
-  <%= button_to "Destroy this despacho", @despacho, method: :delete %>
+</div>
+
+<div>
+  <%= button_to "Excluir despacho", @despacho, method: :delete, class:"button3" %>
 </div>

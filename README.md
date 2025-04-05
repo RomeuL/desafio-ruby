@@ -1,24 +1,56 @@
-# README
+# Sistema de Controle Bélico - Guarda Civil Municipal de Mossoró
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto foi desenvolvido como parte do desafio para a vaga de dev da Prefeitura Municipal de Mossoró. O objetivo foi criar um sistema de controle de armas para a Guarda Civil Municipal (GCM), utilizando **Ruby on Rails**, com foco na simplicidade e produtividade.
 
-Things you may want to cover:
+## 🛠 Tecnologias Utilizadas
 
-* Ruby version
+- **Ruby on Rails** (v8.0 ou superior)
+- **Ruby** (v3.0 ou superior)
+- **PostgreSQL** como banco de dados
+- **Devise** para autenticação de usuários e gerenciamento de sessões
+- **CSS puro** para estilização da interface
+- **Rails Scaffold** para criação rápida de models, controllers e views
 
-* System dependencies
+## 📌 Funcionalidades
 
-* Configuration
+- Autenticação de usuários com recuperação de senha
+- CRUDs completos para:
+  - Unidades
+  - Guardas
+  - Equipes
+  - Armas 
+- Controle de movimentações (empréstimo e devolução de armas)
+  - Atualização automática de status da arma
+  - Validação de devoluções com justificativa, quando necessário
+- Data e hora das movimentações geradas automaticamente
 
-* Database creation
+## 🧠 Motivação e Decisões de Projeto
 
-* Database initialization
+Inicialmente, considerei utilizar **Ruby on Rails apenas como back-end** com **React** no front-end, buscando maior flexibilidade visual. Também cogitei usar o **Tailwind CSS** como framework de estilização. No entanto, para manter o projeto o mais simples, acessível e focado possível, decidi seguir com **CSS puro** e a estrutura padrão do Rails.
 
-* How to run the test suite
+## ✨ Experiência com Ruby on Rails
 
-* Services (job queues, cache servers, search engines, etc.)
+Antes deste desafio, **eu nunca havia utilizado Ruby**. Fiquei positivamente surpreso com a linguagem, especialmente quando combinada ao framework Rails. A produtividade oferecida pelas ferramentas nativas, como o `scaffold`, a extensa documentação e a comunidade ativa tornaram a experiência de desenvolvimento extremamente fluida e eficaz.
 
-* Deployment instructions
+## ⚙️ Requisitos para rodar o projeto
 
-* ...
+- Ruby 3.0 ou superior
+- Rails 8.0 ou superior
+- PostgreSQL instalado e configurado
+- Configurar as variáveis de ambiente
+
+## 🚀 Como rodar o projeto localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/RomeuL/desafio-gcm.git
+cd desafio-gcm
+
+# Instale as dependências
+bundle install
+
+# Crie e configure o banco de dados
+rails db:create db:migrate
+
+# Rode o servidor
+rails server

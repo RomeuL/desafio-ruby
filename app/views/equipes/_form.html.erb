@@ -1,7 +1,7 @@
-<%= form_with(model: equipe, local: true) do |form| %>
+<%= form_with(model: equipe) do |form| %>
   <% if equipe.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(equipe.errors.count, "error") %> prohibited this equipe from being saved:</h2>
+      <h2><%= pluralize(equipe.errors.count, "error") %> ao cadastrar equipe:</h2>
 
       <ul>
         <% equipe.errors.each do |error| %>
@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
-  </div>
-
   <div class="field">
-    <%= form.label :unidade_id, "Unidade" %>
-    <%= form.collection_select :unidade_id, @unidades, :id, :nome, prompt: "Selecione uma unidade" %>
+    <%= form.label :nome, "Nome", style: "display: block", class: "field-text" %>
+    <%= form.text_field :nome, class: "input-centralizado" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :unidade_id, "Unidade", style: "display: block", class: "field-text" %>
+    <%= form.collection_select :unidade_id, @unidades, :id, :nome, { prompt: "Selecione uma unidade" }, { class: "input-centralizado" } %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Cadastrar equipe", class: "button" %>
   </div>
 <% end %>

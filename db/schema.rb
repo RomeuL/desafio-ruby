@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_03_170446) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_04_195633) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_03_170446) do
     t.boolean "emprestada"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "guarda_atual_id"
+    t.index ["guarda_atual_id"], name: "index_armas_on_guarda_atual_id"
   end
 
   create_table "despachos", force: :cascade do |t|
@@ -82,6 +84,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_03_170446) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "armas", "guardas", column: "guarda_atual_id"
   add_foreign_key "despachos", "armas"
   add_foreign_key "despachos", "guardas"
   add_foreign_key "despachos", "guardas", column: "armeiro_id"

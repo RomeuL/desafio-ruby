@@ -1,11 +1,11 @@
-<% content_for :title, "New despacho" %>
+<% content_for :title, "Novo despacho" %>
 
-<h1>New despacho</h1>
+<h1 class="show-titulo">Novo despacho</h1>
 
 <%= render "form", despacho: @despacho %>
 
 <br>
 
 <div>
-  <%= link_to "Back to despachos", despachos_path %>
+  <%= link_to "Despachos", despachos_path, class:"button" %>
 </div>

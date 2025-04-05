@@ -26,7 +26,7 @@ class ArmasController < ApplicationController
 
     respond_to do |format|
       if @arma.save
-        format.html { redirect_to @arma, notice: "Arma was successfully created." }
+        format.html { redirect_to @arma, notice: "Arma cadastrada com sucesso." }
         format.json { render :show, status: :created, location: @arma }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class ArmasController < ApplicationController
   def update
     respond_to do |format|
       if @arma.update(arma_params)
-        format.html { redirect_to @arma, notice: "Arma was successfully updated." }
+        format.html { redirect_to @arma, notice: "Arma atualizada com sucesso." }
         format.json { render :show, status: :ok, location: @arma }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,18 +53,16 @@ class ArmasController < ApplicationController
     @arma.destroy!
 
     respond_to do |format|
-      format.html { redirect_to armas_path, status: :see_other, notice: "Arma was successfully destroyed." }
+      format.html { redirect_to armas_path, status: :see_other, notice: "A arma foi excluída com sucesso." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_arma
       @arma = Arma.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
     def arma_params
       params.expect(arma: [ :modelo, :registro, :emprestada ])
     end

@@ -10,31 +10,44 @@
  */
 
 /* Centralizar o conteúdo */
-.center-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centraliza horizontalmente */
-  justify-content: center; /* Centraliza verticalmente */
-  text-align: center;
-  margin: 0 auto; /* Centraliza horizontalmente no layout */
-  min-height: 100vh; /* Garante que o contêiner ocupe a altura total da tela */
-}
 
-/* Estilizar os botões */
-.styled-button {
+.button {
   display: inline-block;
+  margin: 10px;
   padding: 10px 20px;
-  margin: 10px 0;
   background-color: #007bff;
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
 }
 
-.styled-button:hover {
+.button:hover {
   background-color: #0056b3;
+}
+
+.button2{
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #1db32a;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.button2:hover {
+  background-color: #03a311;
+}
+.button3{
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.button3:hover {
+  background-color: #9e0303;
 }
 
 body {
@@ -43,17 +56,90 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
-/* Ajustar o título */
-h1 {
-  margin-bottom: 20px; /* Adiciona espaço abaixo do título */
-  font-size: 2rem; /* Ajusta o tamanho da fonte, se necessário */
-  text-align: center; /* Centraliza o texto */
+.field{
+  padding: 10px;
+}
+.field-text{
+  text-align: center;
+  justify-content: center;
+
 }
 
-/* Ajustar o contêiner principal */
-#unidades {
-  margin-top: 20px; /* Adiciona espaço acima do contêiner */
+.actions{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.show{
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #686a76;
+}
+
+.show-nome{
+  color: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-transform: uppercase;
+}
+
+.show-titulo{
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  text-transform: uppercase;
+  background: linear-gradient(to right, rgb(135, 130, 130), rgb(29, 29, 82));
+  color: white;
+}
+
+.input-centralizado {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%; /* Ajuste conforme necessário */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  appearance: none; /* Remove o estilo padrão do navegador */
+  background-color: #fff; /* Adicione uma cor de fundo */
+}
+
+.dropdown-wrapper {
+  position: relative;
+  width: 100%; /* Ajuste conforme necessário */
+  margin: 0 auto;
+}
+
+.dropdown-wrapper select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+  background-color: #fff;
+}
+
+.checkbox-centralizado {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.checkbox-centralizado input[type="checkbox"] {
+  margin-right: 5px; /* Espaçamento entre o checkbox e o texto */
 }
