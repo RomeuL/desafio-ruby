@@ -1,4 +1,4 @@
-# Sistema de Controle Bélico - Guarda Civil Municipal de Mossoró
+# Sistema de Controle Bélico
 
 Este projeto foi desenvolvido como parte do desafio para a vaga de dev da Prefeitura Municipal de Mossoró. O objetivo foi criar um sistema de controle de armas para a Guarda Civil Municipal (GCM), utilizando **Ruby on Rails**, com foco na simplicidade e produtividade.
 
