@@ -43,8 +43,8 @@ Antes deste desafio, **eu nunca havia utilizado Ruby**. Fiquei positivamente sur
 
 ```bash
 # Clone o repositório
-git clone https://github.com/RomeuL/desafio-gcm.git
-cd desafio-gcm
+git clone https://github.com/RomeuL/desafio-ruby.git
+cd desafio-ruby
 
 # Instale as dependências
 bundle install
