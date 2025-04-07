@@ -11,7 +11,7 @@ Este projeto foi desenvolvido como parte de um desafio para uma vaga de desenvol
 - **CSS puro** para estilização da interface
 - **Rails Scaffold** para criação rápida de models, controllers e views
 
-## 📌 Funcionalidades
+##  Funcionalidades
 
 - Autenticação de usuários com recuperação de senha
 - CRUDs completos para:
@@ -24,22 +24,22 @@ Este projeto foi desenvolvido como parte de um desafio para uma vaga de desenvol
   - Validação de devoluções com justificativa, quando necessário
 - Data e hora das movimentações geradas automaticamente
 
-## 🧠 Motivação e Decisões de Projeto
+##  Motivação e Decisões de Projeto
 
 Inicialmente, considerei utilizar **Ruby on Rails apenas como back-end** com **React** no front-end, buscando maior flexibilidade visual. Também cogitei usar o **Tailwind CSS** como framework de estilização. No entanto, para manter o projeto o mais simples, acessível e focado possível, decidi seguir com **CSS puro** e a estrutura padrão do Rails.
 
-## ✨ Experiência com Ruby on Rails
+##  Experiência com Ruby on Rails
 
 Antes deste desafio, **eu nunca havia utilizado Ruby**. Fiquei positivamente surpreso com a linguagem, especialmente quando combinada ao framework Rails. A produtividade oferecida pelas ferramentas nativas, como o `scaffold`, a extensa documentação e a comunidade ativa tornaram a experiência de desenvolvimento extremamente fluida e eficaz.
 
-## ⚙️ Requisitos para rodar o projeto
+##  Requisitos para rodar o projeto
 
 - Ruby 3.0 ou superior
 - Rails 8.0 ou superior
 - PostgreSQL instalado e configurado
 - Configurar as variáveis de ambiente
 
-## 🚀 Como rodar o projeto localmente
+##  Como rodar o projeto localmente
 
 ```bash
 # Clone o repositório
