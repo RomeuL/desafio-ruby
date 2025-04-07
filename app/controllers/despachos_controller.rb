@@ -55,6 +55,7 @@ class DespachosController < ApplicationController
         format.html { redirect_to @despacho, notice: "Despacho criado." }
         format.json { render :show, status: :created, location: @despacho }
       else
+        set_armeiros_guardas_armas
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @despacho.errors, status: :unprocessable_entity }
       end
@@ -81,6 +82,7 @@ class DespachosController < ApplicationController
         format.html { redirect_to @despacho, notice: "Despacho atualizado." }
         format.json { render :show, status: :ok, location: @despacho }
       else
+        set_armeiros_guardas_armas
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @despacho.errors, status: :unprocessable_entity }
       end
