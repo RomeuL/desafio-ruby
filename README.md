@@ -2,7 +2,7 @@
 
 Este projeto foi desenvolvido como parte de um desafio para uma vaga de desenvolvedor. O objetivo foi criar um sistema de controle de armas para a Guarda Civil Municipal (GCM), utilizando **Ruby on Rails**, com foco na simplicidade e produtividade.
 
-## 🛠 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Ruby on Rails** (v8.0 ou superior)
 - **Ruby** (v3.0 ou superior)
